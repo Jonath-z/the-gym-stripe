@@ -9,7 +9,9 @@
     <title>Stripe | clone</title>
   </head>
   <body class="flex flex-col items-center justify-center w-full">
-    <section class="grid grid-cols-4 -z-50 fixed top bottom-0 h-screen">
+    <section
+      class="grid grid-cols-4 sm:grid-cols-2 -z-50 fixed top bottom-0 h-screen sm:hidden"
+    >
       <div
         class="border-r border-l border-dashed h-full w-[300px] border-gray-200"
       ></div>
@@ -17,14 +19,14 @@
         class="border-r border-dashed h-full w-[300px] border-gray-200"
       ></div>
       <div
-        class="border-r border-dashed h-full w-[300px] border-gray-200"
+        class="border-r border-dashed h-full w-[300px] border-gray-200 sm:hidden"
       ></div>
       <div
-        class="border-r border-dashed h-full w-[300px] border-gray-200"
+        class="border-r border-dashed h-full w-[300px] border-gray-200 sm:hidden"
       ></div>
     </section>
     <div
-      class="absolute top-0 left-0 right-0 bottom-0 w-full h-[50rem] -z-30 header"
+      class="absolute top-0 left-0 right-0 bottom-0 w-full h-[50rem] sm:h-[25rem] -z-30 header"
     >
       <canvas id="gradient-canvas" style="width: 100%; height: 100%"></canvas>
     </div>
@@ -50,7 +52,7 @@
 
             <div>
               <ul
-                class="flex flex-row gap-5 items-center text-white font-secondary"
+                class="flex flex-row gap-5 items-center text-white font-secondary sm:hidden"
               >
                 <li>Product</li>
                 <li>Solutions</li>
@@ -82,10 +84,10 @@
           </div>
 
           <div class="flex justify-center items-center">
-            <div class="mt-48 grid grid-cols-2">
+            <div class="mt-48 sm:mt-10 grid grid-cols-2 sm:grid-cols-1">
               <div>
                 <h1
-                  class="text-[5rem] mt-14 font-extrabold leading-tight font-secondary"
+                  class="text-[5rem] mt-14 font-extrabold leading-tight font-secondary sm:text-2xl"
                 >
                   Financial <br />
                   infrastructure for the internet
@@ -134,7 +136,7 @@
                 </div>
               </div>
 
-              <div class="w-full h-full relative">
+              <div class="w-full h-full relative sm:hidden">
                 <div
                   class="bg-white/40 absolute shadow-2xl flex gap-8 pb-8 rounded-2xl left-28 -mr-[160px] w-[70rem]"
                 >
@@ -506,7 +508,7 @@
       </header>
 
       <section
-        class="grid grid-cols-4 grid-rows-2 gap-y-12 max-w-6xl mx-auto my-20"
+        class="grid grid-cols-4 grid-rows-2 gap-y-12 max-w-6xl mx-auto my-20 sm:grid-cols-2 sm:grid-rows-4"
       >
         <img src="./assets/vectos/instactar.svg" />
         <img src="./assets/vectos/saleforce.svg" />
@@ -520,7 +522,7 @@
 
       <section class="bg-[#8d95ec]/10">
         <div
-          class="grid grid-cols-2 max-w-6xl mx-auto py-32 justify-center items-center"
+          class="grid grid-cols-2 max-w-6xl sm:max-w-full sm:w-full mx-auto py-32 justify-center items-center sm:grid-cols-1 sm:gap-5"
         >
           <div class="flex flex-col gap-9">
             <p class="text-stripe-blue font-secondary text-xl">
@@ -544,7 +546,7 @@
             </p>
 
             <button
-              class="bg-stripe-blue w-fit text-white font-secondary font-sm px-4 py-2 rounded-full"
+              class="bg-stripe-blue w-fit text-white font-secondary font-sm px-4 py-2 rounded-full sm:hidden"
             >
               Start with payement
             </button>
@@ -561,6 +563,12 @@
             <a class="text-stripe-blue">manage business spend</a>,<br />
             and much more.
           </p>
+
+          <button
+            class="bg-stripe-blue w-fit text-white font-secondary font-sm px-4 py-2 rounded-full hidden sm:block"
+          >
+            Start with payement
+          </button>
         </div>
         <section class="grid grid-cols-4 grid-rows-2 gap-9 max-w-6xl mx-auto">
           <img
@@ -591,7 +599,7 @@
           class="-skew-y-[4deg] h-[80rem] w-full bg-[#0a2540] z-40 top-0 left-0 right-0 absolute -mt-[7rem]"
         >
           <div
-            class="flex max-w-6xl mx-auto py-32 justify-center items-center mt-[10rem] skew-y-[4deg]"
+            class="flex max-w-6xl sm:max-w-full sm:w-full mx-auto py-32 justify-center items-center mt-[10rem] skew-y-[4deg] sm:flex-col"
           >
             <div class="flex flex-col gap-9 w-full">
               <p class="text-stripe-sky-blue font-secondary text-xl">
@@ -612,7 +620,7 @@
               >
                 Start with payement
               </button>
-              <div class="grid grid-cols-2">
+              <div class="grid grid-cols-2 sm:grid-cols-1">
                 <div>
                   <svg
                     width="96"
@@ -857,14 +865,16 @@
             class="bg-stripe-deco-blue/50 h-full w-32 -mt-14 ml-auto mr-20 bg-opacity-90 z-20"
           ></div>
         </div>
-        <div class="max-w-6xl mx-auto flex flex-col skew-y-[4deg]">
+        <div
+          class="max-w-6xl sm:max-w-full sm:w-full mx-auto flex flex-col skew-y-[4deg]"
+        >
           <div class="flex flex-col gap-8">
             <p class="text-[#0048e5] font-secondary">Why Stripe</p>
             <h1 class="text-5xl font-secondary leading-[3.5rem] py-16">
               A technology-first approach to payments<br />
             </h1>
           </div>
-          <div class="grid grid-cols-4">
+          <div class="grid grid-cols-4 sm:grid-cols-1">
             <div>
               <img src="./assets/vectos/material.svg" class="w-20" />
               <p class="font-secondary">Close to the metal</p>
@@ -918,10 +928,10 @@
       <section
         class="relative w-full bg-[#0a2540] -translate-y-[16rem] -z-50 pt-48"
       >
-        <div class="h-[55rem] w-full max-w-6xl mx-auto">
+        <div class="h-[55rem] w-full max-w-6xl sm:max-w-full sm:w-full mx-auto">
           <img
             src="./assets/download.png"
-            class="w-[1000px] h-full object-cover object-center ml-auto -mr-96 rounded-full"
+            class="w-[1000px] h-full object-cover object-center ml-auto -mr-96 rounded-full sm:hidden"
           />
           <div class="absolute bottom-0 max-w-6xl mx-auto right-0 left-0">
             <div class="flex flex-col gap-9 w-full">
@@ -941,7 +951,7 @@
                 of dollars each year for
                 <span class="text-stripe-sky-blue">start up fortune 500s</span>
               </p>
-              <div class="grid grid-cols-4 py-20">
+              <div class="grid grid-cols-4 py-20 sm:grid-cols-1">
                 <div class="space-y-3">
                   <p
                     class="text-white font-secondary text-2xl border-l-2 border-stripe-sky-blue px-5"
@@ -1000,9 +1010,11 @@
         </div>
       </section>
 
-      <section class="-mt-24 py-20 max-w-6xl mx-auto flex flex-col gap-8">
-        <div class="grid grid-cols-4">
-          <div class="col-span-2 space-y-7">
+      <section
+        class="-mt-24 py-20 max-w-6xl sm:w-full sm:max-w-full mx-auto flex flex-col gap-8"
+      >
+        <div class="grid grid-cols-4 sm:grid-cols-1">
+          <div class="col-span-2 space-y-7 sm:col-span-1">
             <h2 class="font-secondary text-2xl">Ready to get started?</h2>
             <p class="font-secondary text-gray-500">
               Explore
@@ -1111,7 +1123,9 @@
         style="clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%)"
         class="bg-slate-200"
       >
-        <div class="grid grid-cols-4 justify-center py-20 max-w-6xl mx-auto">
+        <div
+          class="grid grid-cols-4 justify-center py-20 max-w-6xl mx-auto sm:grid-cols-2"
+        >
           <div
             class="flex flex-col justify-between gap-2 mt-80 text-semi-gray font-secondary"
           >

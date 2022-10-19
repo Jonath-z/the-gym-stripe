@@ -14,6 +14,9 @@ module.exports = {
         "stripe-deco-blue": "#02bcf5",
         "stripe-semi-violet": "#7a73ff",
       },
+      screens: {
+        sm: { max: "700px" },
+      },
     },
   },
   plugins: [],
