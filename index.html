@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./dist/output.css" />
+    <title>Stripe | clone</title>
+  </head>
+  <body class="flex flex-col items-center justify-center w-full">
+    <section class="grid grid-cols-4 -z-50 fixed top bottom-0 h-screen">
+      <div
+        class="border-r border-l border-dashed h-full w-[300px] border-gray-200"
+      ></div>
+      <div
+        class="border-r border-dashed h-full w-[300px] border-gray-200"
+      ></div>
+      <div
+        class="border-r border-dashed h-full w-[300px] border-gray-200"
+      ></div>
+      <div
+        class="border-r border-dashed h-full w-[300px] border-gray-200"
+      ></div>
+    </section>
+    <div
+      class="absolute top-0 left-0 right-0 bottom-0 w-full h-[50rem] -z-30 header"
+    >
+      <canvas id="gradient-canvas" style="width: 100%; height: 100%"></canvas>
+    </div>
+    <div class="w-full">
+      <header class="h-full w-full relative overflow-x-hidden">
+        <nav class="flex flex-col justify-center max-w-6xl mx-auto py-4">
+          <div class="flex justify-between items-center">
+            <svg
+              viewBox="0 0 60 25"
+              xmlns="http://www.w3.org/2000/svg"
+              width="60"
+              height="25"
+              fill="currentColor"
+              class="fill-white text-white"
+            >
+              <title>Stripe logo</title>
+              <path
+                fill="currentColor"
+                d="M59.64 14.28h-8.06c.19 1.93 1.6 2.55 3.2 2.55 1.64 0 2.96-.37 4.05-.95v3.32a8.33 8.33 0 0 1-4.56 1.1c-4.01 0-6.83-2.5-6.83-7.48 0-4.19 2.39-7.52 6.3-7.52 3.92 0 5.96 3.28 5.96 7.5 0 .4-.04 1.26-.06 1.48zm-5.92-5.62c-1.03 0-2.17.73-2.17 2.58h4.25c0-1.85-1.07-2.58-2.08-2.58zM40.95 20.3c-1.44 0-2.32-.6-2.9-1.04l-.02 4.63-4.12.87V5.57h3.76l.08 1.02a4.7 4.7 0 0 1 3.23-1.29c2.9 0 5.62 2.6 5.62 7.4 0 5.23-2.7 7.6-5.65 7.6zM40 8.95c-.95 0-1.54.34-1.97.81l.02 6.12c.4.44.98.78 1.95.78 1.52 0 2.54-1.65 2.54-3.87 0-2.15-1.04-3.84-2.54-3.84zM28.24 5.57h4.13v14.44h-4.13V5.57zm0-4.7L32.37 0v3.36l-4.13.88V.88zm-4.32 9.35v9.79H19.8V5.57h3.7l.12 1.22c1-1.77 3.07-1.41 3.62-1.22v3.79c-.52-.17-2.29-.43-3.32.86zm-8.55 4.72c0 2.43 2.6 1.68 3.12 1.46v3.36c-.55.3-1.54.54-2.89.54a4.15 4.15 0 0 1-4.27-4.24l.01-13.17 4.02-.86v3.54h3.14V9.1h-3.13v5.85zm-4.91.7c0 2.97-2.31 4.66-5.73 4.66a11.2 11.2 0 0 1-4.46-.93v-3.93c1.38.75 3.1 1.31 4.46 1.31.92 0 1.53-.24 1.53-1C6.26 13.77 0 14.51 0 9.95 0 7.04 2.28 5.3 5.62 5.3c1.36 0 2.72.2 4.09.75v3.88a9.23 9.23 0 0 0-4.1-1.06c-.86 0-1.44.25-1.44.9 0 1.85 6.29.97 6.29 5.88z"
+                fill-rule="evenodd"
+              ></path>
+            </svg>
+
+            <div>
+              <ul class="flex gap-5 items-center text-white font-secondary">
+                <li>Product</li>
+                <li>Solutions</li>
+                <li>Developers</li>
+                <li>Resources</li>
+                <li>Pricing</li>
+              </ul>
+            </div>
+
+            <button
+              class="text-white font-secondary bg-white/30 px-5 py-2 rounded-full flex justify-between items-center gap-2"
+            >
+              Sign in
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="{1.5}"
+                stroke="currentColor"
+                class="w-6 h-4 font-extrabold"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <div class="flex justify-center items-center">
+            <div class="mt-48 grid grid-cols-2">
+              <div>
+                <h1
+                  class="text-[5rem] mt-14 font-extrabold leading-tight font-secondary"
+                >
+                  Financial <br />
+                  infrastructure for the internet
+                </h1>
+                <p class="font-secondary text-gray-500">
+                  Millions of companies of all sizes—from startups to Fortune
+                  <br />
+                  500s—use Stripe’s software and APIs to accept payments, <br />
+                  send payouts, and manage their businesses online.
+                </p>
+
+                <div class="mt-7 flex gap-5">
+                  <button
+                    class="bg-slate-800 text-white px-4 py-2 rounded-full text-sm font-bold flex gap-2 items-center"
+                  >
+                    Start now
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      class="w-5 h-5"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    class="font-bold text-sm px-4 py-2 flex gap-2 items-center"
+                  >
+                    Contact sales<svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      class="w-5 h-5"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="w-full h-full relative">
+                <div
+                  class="bg-white/40 absolute shadow-2xl flex gap-8 pb-8 rounded-2xl left-28 -mr-[160px] w-[70rem]"
+                >
+                  <div class="flex flex-col gap-1 px-3">
+                    <div class="flex items-center gap-5 p-5">
+                      <!-- logo -->
+                      <div>
+                        <svg width="20" height="20" viewBox="0 0 20 20">
+                          <path
+                            fill="#FFF"
+                            d="M10 0a10 10 0 1 1 0 20 10 10 0 0 1 0-20zm3.3 6.11H4.34a.41.41 0 0 0 0 .83h8.94a2.89 2.89 0 0 1 0 5.77H7.65a.41.41 0 0 0 0 .83h5.64a3.71 3.71 0 0 0 0-7.43zm0 1.65a2.06 2.06 0 1 0 2.05 2.06c0-1.13-.92-2.06-2.06-2.06zm-2.83 3.3h-4.7a.41.41 0 0 0 0 .83h4.7a.41.41 0 0 0 0-.83zM13.3 8.6a1.24 1.24 0 1 1 0 2.47 1.24 1.24 0 0 1 0-2.47zm-3.3.8H3.41a.41.41 0 1 0 0 .83h6.6c.22 0 .4-.19.4-.42a.41.41 0 0 0-.41-.4zm.47-1.65H6.24a.41.41 0 1 0 0 .83h4.23a.41.41 0 1 0 0-.83z"
+                          ></path>
+                        </svg>
+                      </div>
+                      <h1 class="uppercase text-white font-bold text-sm">
+                        Rocket Rides
+                      </h1>
+                      <div
+                        class="ml-[1rem] bg-white w-[28rem] flex gap-2 px-2 items-center shadow-md rounded-md py-1"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          class="w-3 h-3"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                          />
+                        </svg>
+
+                        <input
+                          type="text"
+                          placeholder="search"
+                          readonly
+                          class="w-full placeholder:text-sm bg-transparent outline-none"
+                        />
+                      </div>
+                    </div>
+                    <img
+                      src="./assets/Capture1.PNG"
+                      class="rounded-xl shadow-lg ml-48 mb-2 h-[220px]"
+                    />
+                    <img
+                      src="./assets/Capture2.PNG"
+                      class="rounded-xl shadow-lg ml-48 h-[220px]"
+                    />
+                  </div>
+                </div>
+                <!-- xl:-mr-[44rem] -->
+                <!-- mt-32 -->
+                <!-- ===================== phone ======================== -->
+                <div
+                  class="bg-gray-50 w-fit p-2 h-fit rounded-[3rem] shadow-2xl scale-75"
+                >
+                  <!-- absolute left-0 -top-5 bottom-0 -ml-[9rem] -->
+                  <div
+                    class="relative w-80 h-full bg-white flex flex-col items-center py-5 px-3 rounded-[3rem]"
+                  >
+                    <div
+                      class="flex flex-col absolute top-0 w-full h-fit justify-center items-center mt-10"
+                    >
+                      <svg
+                        class="h-24 w-24 top-0 left-0 right-0"
+                        viewBox="0 0 460 700"
+                      >
+                        <rect
+                          width="460"
+                          height="700"
+                          fill="#44B7BC"
+                          rx="40"
+                        ></rect>
+                        <g transform="translate(0 48)">
+                          <polygon
+                            fill="#000"
+                            points="0 43.138 203 0 203 54.028 0 97.271"
+                          ></polygon>
+                          <path
+                            fill="#fff"
+                            d="M21.57 54.77l-9.2 2v3.07l5.82-1.27v19.67l9.2-2v-3.08l-5.82 1.27V54.77zm38.7-5.5c2.85-.63 3.9.85 4.01 3.7l3.39-.74c-.32-4.97-2.44-7.19-7.3-6.13-4.54.95-7.61 4.12-7.61 9.62v7.72c0 4.97 2.43 7.3 7.61 6.13 4.86-1.06 7.09-3.7 7.3-8.46l-3.28.74c-.1 2.64-1.48 4.12-4.02 4.65-3.17.64-4.33-.63-4.23-3.7v-7.72c-.1-3.59 1.27-5.18 4.13-5.81zM46.42 69.15V56.04c0-3.92-1.7-6.45-5.5-5.71-2.43.53-5.08 2.53-5.71 4.86v-3.28L28 53.4v3.07l3.81-.85v19.56l3.39-.74v-16.5c1.58-3.07 3.28-4.02 4.86-4.34 1.8-.42 3.07.43 3.07 2.97v16.28l7.19-1.48V68.3l-3.91.85zM189.47 22.2v-3.17l-11.95 2.54v3.17l3.38-.74v19.56l8.57-1.8V38.7l-5.18 1.05V23.26l5.18-1.06zM92.09 59.84c-3.07.64-4.23-.74-4.23-3.8v-3.18l11.63-2.43V46.2c0-4.86-2.64-7.71-7.5-6.66-4.76 1.06-7.51 4.76-7.51 9.52v7.72c0 4.86 2.85 7.19 7.61 6.23 5.92-1.26 7.61-5.6 7.61-8.56l-3.17.53c-.21 3.07-2 4.33-4.44 4.86zm-4.23-11.63c0-2.96 1.16-5.18 4.12-5.81 3.07-.64 4.13 1.27 4.13 4.44V48l-8.25 1.8v-1.6zm56.88.43c-3.06.63-4.23-.74-4.23-3.81v-3.17l11.63-2.43V35c0-4.87-2.64-7.72-7.5-6.66-4.76 1.05-7.5 4.75-7.5 9.51v7.72c0 4.86 2.85 7.19 7.6 6.24 5.92-1.27 7.62-5.6 7.62-8.57l-3.07.64c-.42 2.96-2.22 4.23-4.55 4.76zm-4.23-11.53c0-2.96 1.17-5.18 4.13-5.81 3.06-.64 4.12 1.26 4.12 4.44v1.16l-8.25 1.8v-1.6zm32.78 4.97V28.97c0-3.7-2.11-6.45-5.7-5.6-2.44.52-4.87 2.53-5.61 4.86v-3.28l-7.2 1.48v3.07l3.81-.85v19.56l3.39-.74v-16.5c1.58-3.06 3.27-4 4.86-4.33 1.8-.42 3.07.43 3.07 2.96v16.3l7.19-1.48v-3.07l-3.81.74zm-42.71 9.1V37.52c0-3.49-2.33-5.81-5.71-5.18-2.12.43-4.87 2.86-5.29 4.97-.42-1.69-2.75-3.17-5.18-2.64-2.12.42-4.44 2.54-4.86 4.65v-3.28l-7.2 1.48v3.07l3.81-.85V59.3l3.39-.74V42.2c.95-2.01 2.43-3.92 4.44-4.34 1.26-.21 2.74.21 2.74 3.17V57.2l3.39-.74V40.07c.95-2 2.43-3.91 4.44-4.33 1.27-.22 2.75.2 2.75 3.17v16.17l7.19-1.48v-3.06l-3.91.63zm-58.37-7.2v22.74l3.39-.75V46.42l5.81-1.27v-3.07l-9.2 1.9z"
+                          ></path>
+                        </g>
+                        <polygon
+                          fill="#000"
+                          points=".001 396.001 108.001 304.001 108.001 432.001 .001 432.001"
+                        ></polygon>
+                        <path
+                          fill="#000"
+                          d="M62.93 647.13c11.7 0 19.72-5.63 19.72-15 0-8.4-4.5-12.75-13.2-15l-8.7-2.25c-4.87-1.28-7.27-3.08-7.27-6.98 0-3.67 3.3-6 8.7-6 4.65 0 8.85 1.65 9.45 7.35h9.75c-1.05-10.65-8.55-15.37-19.05-15.37-11.4 0-18.6 5.85-18.6 14.1 0 7.5 4.05 12.6 12.37 14.77l9.98 2.63c4.57 1.2 6.82 3.22 6.82 6.82 0 4.43-4.42 6.9-10.12 6.9-6 0-9.98-2.32-10.8-8.32h-9.75c.9 11.85 9.37 16.35 20.7 16.35zm38.65-.23c9.22 0 15.6-4.95 16.8-13.42H109c-.45 3.9-3.3 6.15-7.35 6.15s-7.57-2.63-7.57-7.2v-2.55h24.6v-4.73c0-10.5-6.75-18.3-17.1-18.3-10.35 0-17.25 7.95-17.25 19.95s6.37 20.1 17.25 20.1zm7.5-24.3h-15v-1.35c0-4.12 3.22-7.12 7.5-7.12 4.27 0 7.5 3 7.5 7.12v1.35zM9 458c58.96 0 107 22.88 107 52S67.96 562 9 562c-3.03 0-6.03-.06-9-.18v-4c2.97.12 5.97.18 9 .18 57.02 0 103-21.9 103-48S66.02 462 9 462c-3.03 0-6.03.06-9 .18v-4c2.97-.12 5.97-.18 9-.18zM376.96 0c-.63 3.9-.96 7.91-.96 12 0 40.33 31.8 73 71 73 4.44 0 8.79-.42 13-1.22v4.07A73.58 73.58 0 0 1 447 89c-41.43 0-75-34.48-75-77 0-4.08.31-8.09.9-12h4.06z"
+                        ></path>
+                      </svg>
+                      <svg
+                        class="h-24 w-24 top-3 left-2 -mt-20 ml-10"
+                        viewBox="0 0 460 700"
+                      >
+                        <defs>
+                          <linearGradient
+                            id="HomepageIncrementPhone__imageGradientA"
+                            x1="50%"
+                            x2="50%"
+                            y1="0%"
+                            y2="88.24%"
+                          >
+                            <stop offset="0%" stop-color="#AC9CC0"></stop>
+                            <stop offset="100%" stop-color="#F2D6DF"></stop>
+                          </linearGradient>
+                          <linearGradient
+                            id="HomepageIncrementPhone__imageGradientB"
+                            x1="50%"
+                            x2="50%"
+                            y1="0%"
+                            y2="100%"
+                          >
+                            <stop offset="0%" stop-color="#6F74A9"></stop>
+                            <stop offset="80%" stop-color="#515997"></stop>
+                            <stop offset="100%" stop-color="#323C83"></stop>
+                          </linearGradient>
+                          <linearGradient
+                            id="HomepageIncrementPhone__imageGradientC"
+                            x1="0%"
+                            x2="100%"
+                            y1="50%"
+                            y2="50%"
+                          >
+                            <stop offset="0%" stop-color="#B1AFCC"></stop>
+                            <stop offset="100%" stop-color="#7B80B1"></stop>
+                          </linearGradient>
+                          <linearGradient
+                            id="HomepageIncrementPhone__imageGradientD"
+                            x1="0%"
+                            x2="100%"
+                            y1="0%"
+                            y2="0%"
+                          >
+                            <stop offset="0%" stop-color="#EB938A"></stop>
+                            <stop offset="90%" stop-color="#E6887F"></stop>
+                            <stop offset="100%" stop-color="#B74840"></stop>
+                          </linearGradient>
+                          <linearGradient
+                            id="HomepageIncrementPhone__imageGradientE"
+                            x1="0%"
+                            x2="100%"
+                            y1="50%"
+                            y2="50%"
+                          >
+                            <stop
+                              offset="0%"
+                              stop-color="#FFF"
+                              stop-opacity="0"
+                            ></stop>
+                            <stop
+                              offset="100%"
+                              stop-color="#FFF"
+                              stop-opacity=".5"
+                            ></stop>
+                          </linearGradient>
+                          <linearGradient
+                            id="HomepageIncrementPhone__imageGradientF"
+                            x1="50%"
+                            x2="50%"
+                            y1="60%"
+                            y2="100%"
+                          >
+                            <stop offset="0%" stop-color="#4FBED4"></stop>
+                            <stop offset="100%" stop-color="#439CCA"></stop>
+                          </linearGradient>
+                          <linearGradient
+                            id="HomepageIncrementPhone__imageGradientG"
+                            x1="50%"
+                            x2="50%"
+                            y1="0%"
+                            y2="100%"
+                          >
+                            <stop
+                              offset="0%"
+                              stop-color="#52468C"
+                              stop-opacity=".8"
+                            ></stop>
+                            <stop
+                              offset="100%"
+                              stop-color="#52468C"
+                              stop-opacity=".2"
+                            ></stop>
+                          </linearGradient>
+                          <linearGradient
+                            id="HomepageIncrementPhone__imageGradientH"
+                            x1="50%"
+                            x2="50%"
+                            y1="0%"
+                            y2="100%"
+                          >
+                            <stop offset="0%" stop-color="#F2B532"></stop>
+                            <stop offset="100%" stop-color="#EB9234"></stop>
+                          </linearGradient>
+                        </defs>
+                        <path
+                          fill="url(#HomepageIncrementPhone__imageGradientA)"
+                          d="M0 239h460v421a40 40 0 0 1-40 40H40a40 40 0 0 1-40-40V239z"
+                        ></path>
+                        <rect
+                          width="460"
+                          height="28"
+                          x=".01"
+                          y="211"
+                          fill="url(#HomepageIncrementPhone__imageGradientB)"
+                        ></rect>
+                        <path
+                          fill="#52468C"
+                          d="M40 0h380a40 40 0 0 1 40 40v171H0V40A40 40 0 0 1 40 0z"
+                        ></path>
+                        <path
+                          fill="url(#HomepageIncrementPhone__imageGradientC)"
+                          d="M459 155.88l1 .88V211H0V40a39.86 39.86 0 0 1 10.46-26.96C134.2 29 289.04 127.07 459 155.88z"
+                        ></path>
+                        <path
+                          fill="#8888B5"
+                          d="M460 60H231.5c36.15 0 151.64-18.83 214.75-50.2A39.9 39.9 0 0 1 460 40v20z"
+                        ></path>
+                        <rect
+                          width="75"
+                          height="461"
+                          x="128"
+                          y="239"
+                          fill="url(#HomepageIncrementPhone__imageGradientD)"
+                        ></rect>
+                        <path
+                          fill="url(#HomepageIncrementPhone__imageGradientE)"
+                          d="M319 79c72.35 0 131 58.65 131 131v1H188.01v-1c0-71.63 57.48-129.83 128.83-130.98L319 79z"
+                        ></path>
+                        <path
+                          fill="url(#HomepageIncrementPhone__imageGradientF)"
+                          d="M452.5 239c0 36.46-16.76 79.52-44.74 113-32.25 38.58-76.16 61.5-126.26 61.5-86.47 0-151.19 66.96-152.48 153.38L129.01 700H99V569.5c0-103.94 78.25-186 182.5-186 40.68 0 76.4-18.65 103.24-50.75 23.37-27.96 37.47-63.86 37.75-92.87V239h30z"
+                        ></path>
+                        <path
+                          fill="#000"
+                          d="M263.5 547.13c10.65 0 18.6-5.02 20.18-16.73h-9.75c-.98 6-4.2 8.48-10.28 8.48-6.15 0-11.02-4.5-11.02-10.65v-15.6c0-6.38 4.5-10.5 10.72-10.5 5.78 0 9.23 2.7 9.75 8.1h9.75c-.67-10.05-8.32-16.35-18.82-16.35-14.78 0-21.9 10.57-21.9 26.77 0 15.38 6.67 26.48 21.37 26.48zm32.95-1.13v-51h-9.37v51h9.37zm21.93.9c11.47 0 17.92-8.02 17.92-20.02s-6.45-20.02-17.92-20.02c-11.48 0-17.93 8.02-17.93 20.02s6.45 20.02 17.93 20.02zm0-7.27c-4.65 0-8.18-2.63-8.18-7.2v-11.1c0-4.58 3.53-7.2 8.18-7.2s8.17 2.55 8.17 7.2v11.1c0 4.65-3.52 7.2-8.17 7.2zm33.85 7.27c5.4 0 8.92-2.32 11.25-6.44V546h9.37v-38.25h-9.37v22.13c0 5.55-3.15 9.38-8.18 9.38-4.42 0-6-2.7-6-7.13v-24.38h-9.37v25.05c0 8.86 4.12 14.1 12.3 14.1zm39.92 0a12.3 12.3 0 0 0 11.03-6.07V546h9.37v-51h-9.37v17.93c-2.4-3.82-6.15-6.07-11.18-6.07-10.27 0-15.07 8.92-15.07 20.02s5.02 20.02 15.22 20.02zm2.4-7.27c-4.8 0-7.87-3.08-7.87-7.35v-10.8c0-4.27 3-7.35 7.87-7.35 6 0 8.63 3.9 8.63 9.9v5.7c0 6-2.63 9.9-8.63 9.9z"
+                        ></path>
+                        <path
+                          fill="#fff"
+                          d="M383.32 211H0V90.88c104.75 9.6 237.36 95.4 383.32 120.12z"
+                        ></path>
+                        <polygon
+                          fill="#000"
+                          points=".005 91.138 203.005 48 203.005 102.028 .005 145.271"
+                        ></polygon>
+                        <path
+                          fill="#fff"
+                          d="M21.57 102.77l-9.2 2v3.07l5.82-1.27v19.67l9.2-2v-3.08l-5.82 1.27v-19.66zm38.7-5.5c2.85-.63 3.91.85 4.02 3.7l3.38-.74c-.32-4.97-2.43-7.19-7.3-6.13-4.54.95-7.6 4.12-7.6 9.62v7.72c0 4.97 2.43 7.3 7.6 6.13 4.87-1.06 7.09-3.7 7.3-8.46l-3.28.74c-.1 2.64-1.48 4.13-4.01 4.65-3.18.64-4.34-.63-4.23-3.7v-7.72c-.1-3.59 1.27-5.18 4.12-5.81zm-13.85 19.88v-13.11c0-3.92-1.7-6.45-5.5-5.71-2.43.53-5.07 2.53-5.7 4.86v-3.28l-7.2 1.48v3.07l3.8-.85v19.56l3.4-.74v-16.49c1.58-3.07 3.27-4.02 4.86-4.34 1.8-.42 3.06.43 3.06 2.97v16.28l7.2-1.48v-3.07l-3.92.85zM189.47 70.2v-3.17l-11.95 2.54v3.17l3.39-.74v19.56l8.56-1.8V86.7l-5.18 1.05V71.26l5.18-1.06zM92.1 107.84c-3.06.64-4.22-.74-4.22-3.8v-3.18l11.63-2.43V94.2c0-4.86-2.65-7.71-7.51-6.66-4.76 1.06-7.5 4.76-7.5 9.52v7.72c0 4.86 2.85 7.19 7.6 6.23 5.93-1.26 7.62-5.6 7.62-8.56l-3.17.53c-.22 3.07-2.01 4.33-4.45 4.86zm-4.22-11.63c0-2.96 1.16-5.18 4.12-5.81 3.07-.64 4.12 1.27 4.12 4.44V96l-8.24 1.8v-1.6zm56.88.43c-3.07.63-4.23-.74-4.23-3.81v-3.17l11.63-2.43V83c0-4.87-2.64-7.72-7.5-6.66-4.77 1.05-7.51 4.75-7.51 9.51v7.72c0 4.86 2.85 7.19 7.6 6.24 5.93-1.27 7.62-5.6 7.62-8.57l-3.07.64c-.42 2.96-2.22 4.23-4.54 4.76zm-4.23-11.53c0-2.96 1.16-5.18 4.12-5.81 3.07-.64 4.13 1.26 4.13 4.44v1.16l-8.25 1.8v-1.6zm32.77 4.97V76.97c0-3.7-2.11-6.45-5.7-5.6-2.44.52-4.87 2.53-5.6 4.86v-3.28l-7.2 1.48v3.07l3.8-.85v19.56l3.4-.74v-16.5c1.58-3.06 3.27-4 4.86-4.33 1.8-.42 3.06.43 3.06 2.96v16.3l7.2-1.48v-3.07l-3.82.74zm-42.71 9.1V85.52c0-3.49-2.33-5.81-5.7-5.18-2.12.43-4.87 2.86-5.3 4.97-.42-1.69-2.74-3.17-5.18-2.64-2.11.42-4.44 2.54-4.86 4.65v-3.28l-7.19 1.48v3.07l3.8-.85v19.56l3.39-.74V90.2c.95-2.01 2.43-3.92 4.44-4.34 1.27-.21 2.75.21 2.75 3.17v16.18l3.38-.74v-16.4c.95-2 2.43-3.91 4.44-4.33 1.27-.21 2.75.2 2.75 3.17v16.17l7.2-1.48v-3.06l-3.92.63zm-58.36-7.2v22.74l3.38-.75V94.42l5.82-1.27v-3.07l-9.2 1.9z"
+                        ></path>
+                        <path
+                          fill="url(#HomepageIncrementPhone__imageGradientG)"
+                          d="M361.5 239c0 46.23-17.56 99.17-47.13 142.65-33.51 49.28-79.68 83.15-132.66 91.37l-4.29.66c-4.1.6-16.41 2.3-36.95 5.05a1106.44 1106.44 0 0 0-39.46 6.02c-35.16 6.44-61.21 15.33-82.22 29.1a125.89 125.89 0 0 0-18.79 15V431.6c24.8-12.05 52.5-20.22 85.07-26.27l4.18-.76 3.02-.54c9.86-1.74 17.98-2.95 34.57-5.19l23.68-3.16a931.3 931.3 0 0 0 18.77-2.7c28.52-4.42 56.28-24.79 78.1-56.87 20.54-30.21 32.87-67.03 33.11-96.22V239h81z"
+                        ></path>
+                        <path
+                          fill="url(#HomepageIncrementPhone__imageGradientH)"
+                          d="M22.18 561.36c23.26 23.48 58.34 36.87 104.91 37.14H340c46.1 0 90.76 22.88 120 57.03V660a40.02 40.02 0 0 1-27.94 38.15c-18.82-29.08-54.21-51-90.45-51.64l-213.1-.01c-52.72 0-96.33-14.18-128.5-40.52V528.2a105.93 105.93 0 0 0 22.17 33.17z"
+                        ></path>
+                      </svg>
+                    </div>
+                    <!-- phone description -->
+                    <div class="mt-[9rem]">
+                      <p
+                        class="font-secondary flex flex-col gap-1 justify-center items-center text-xs"
+                      >
+                        Increment Magazine
+                        <span class="text-xs text-gray-500">
+                          $14 per quarter
+                        </span>
+                      </p>
+                    </div>
+
+                    <!-- phone pay button -->
+                    <div
+                      class="bg-slate-800 text-white w-full flex justify-center items-center text-xs text-center py-2 my-4 rounded-lg font-secondary"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        x="0px"
+                        y="0px"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        class="w-3 h-3"
+                        style="fill: #fff"
+                      >
+                        <path
+                          d="M 16.125 1 C 14.972 1.067 13.648328 1.7093438 12.861328 2.5273438 C 12.150328 3.2713438 11.589359 4.3763125 11.818359 5.4453125 C 13.071359 5.4783125 14.329031 4.8193281 15.082031 3.9863281 C 15.785031 3.2073281 16.318 2.12 16.125 1 z M 16.193359 5.4433594 C 14.384359 5.4433594 13.628 6.5546875 12.375 6.5546875 C 11.086 6.5546875 9.9076562 5.5136719 8.3476562 5.5136719 C 6.2256562 5.5146719 3 7.4803281 3 12.111328 C 3 16.324328 6.8176563 21 8.9726562 21 C 10.281656 21.013 10.599 20.176969 12.375 20.167969 C 14.153 20.154969 14.536656 21.011 15.847656 21 C 17.323656 20.989 18.476359 19.367031 19.318359 18.082031 C 19.922359 17.162031 20.170672 16.692344 20.638672 15.652344 C 17.165672 14.772344 16.474672 9.1716719 20.638672 8.0136719 C 19.852672 6.6726719 17.558359 5.4433594 16.193359 5.4433594 z"
+                        ></path>
+                      </svg>
+                      Pay
+                    </div>
+
+                    <div
+                      class="flex font-secondary text-xs text-gray-500 font-thin"
+                    >
+                      Or pay with card
+                    </div>
+
+                    <!-- phone form -->
+                    <div class="w-full py-5">
+                      <div class="flex flex-col w-full gap-2">
+                        <label
+                          class="text-gray-500 text-xs font-secondary font-light"
+                          >Email</label
+                        >
+                        <input
+                          type="text"
+                          class="shadow-lg border py-1 cursor-none text-white rounded-md outline-none"
+                        />
+                      </div>
+                      <div class="flex flex-col w-full my-5 gap-3">
+                        <p class="text-gray-500 text-xs font-secondary">
+                          Card Information
+                        </p>
+                        <div class="border rounded-md">
+                          <div class="grid grid-cols-2">
+                            <div
+                              class="col-span-3 border-b text-gray-500 text-xs p-2"
+                            >
+                              Number
+                            </div>
+                            <div
+                              class="border-r w-full text-gray-500 text-xs p-2"
+                            >
+                              MM/YY
+                            </div>
+                            <div class="w-full text-gray-500 text-xs p-2">
+                              CVC
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="flex flex-col w-full my-5 gap-3">
+                        <p class="text-gray-500 text-xs font-secondary">
+                          Country or Region
+                        </p>
+                        <div class="border rounded-md">
+                          <div class="grid grid-cols-1 grid-rows-2">
+                            <div
+                              class="col-span-2 border-b text-gray-500 text-xs p-2"
+                            >
+                              United States
+                            </div>
+                            <div class="w-full text-gray-500 text-xs p-2">
+                              ZIP
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="bg-slate-800 text-xs text-white w-full flex justify-center items-center text-center py-2 my-4 rounded-lg font-secondary"
+                      >
+                        Pay
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- ================================ phone end ========================================================= -->
+                <!-- ============================= chart start ========================================== -->
+                <!-- </div> -->
+              </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      <section
+        class="grid grid-cols-4 grid-rows-2 gap-y-12 max-w-6xl mx-auto my-20"
+      >
+        <img src="./assets/vectos/instactar.svg" />
+        <img src="./assets/vectos/saleforce.svg" />
+        <img src="./assets/vectos/amazon.svg" />
+        <img src="./assets/vectos/slack.svg" />
+        <img src="./assets/vectos/shopify.svg" />
+        <img src="./assets/vectos/google.svg" />
+        <img src="./assets/vectos/lyft.svg" />
+        <img src="./assets/vectos/zoom.svg" />
+      </section>
+
+      <section class="bg-[#8d95ec]/10">
+        <div
+          class="grid grid-cols-2 max-w-6xl mx-auto py-32 justify-center items-center"
+        >
+          <div class="flex flex-col gap-9">
+            <p class="text-stripe-blue font-secondary text-xl">
+              Unified platform
+            </p>
+            <h1 class="text-3xl font-secondary">
+              A fully integrated suite of <br />
+              payments products
+            </h1>
+            <p class="font-secondary font-light text-gray-500">
+              We bring together everything that’s required to build<br />
+              websites and apps that accept payments and send payouts<br />
+              globally. Stripe’s products power payments for
+              <a class="text-stripe-blue"
+                >online and in-<br />person retailers</a
+              >, <a class="text-stripe-blue">subscriptions businesses</a>,
+              <a class="text-stripe-blue"
+                >software<br />
+                platforms and marketplaces</a
+              >, and everything in between.
+            </p>
+
+            <button
+              class="bg-stripe-blue w-fit text-white font-secondary font-sm px-4 py-2 rounded-full"
+            >
+              Start with payement
+            </button>
+          </div>
+          <p class="font-secondary font-light text-gray-500">
+            We also help companies
+            <a class="text-stripe-blue">beat fraud</a>,
+            <a class="text-stripe-blue">send invoices</a>,<br />
+            <a class="text-stripe-blue">issue virtual and physical cards</a>,
+            <a class="text-stripe-blue"
+              >reduce friction at <br />
+              checkout</a
+            >, <a class="text-stripe-blue">get financing</a>,
+            <a class="text-stripe-blue">manage business spend</a>,<br />
+            and much more.
+          </p>
+        </div>
+        <section class="grid grid-cols-4 grid-rows-2 gap-9 max-w-6xl mx-auto">
+          <img
+            src="./assets/visa-removebg-preview.png"
+            class="w-full h-[50%]"
+          />
+          <img
+            src="./assets/slack-removebg-preview.png"
+            class="col-span-2 w-full h-full"
+          />
+          <img
+            src="./assets/phone-removebg-preview.png"
+            class="-mt-28 row-span-1 h-[-webkit-fill-available] w-full"
+          />
+          <img
+            src="./assets/shop-removebg-preview.png"
+            class="w-80 row-span-2 h-[90%] -mt-64"
+          />
+          <img
+            src="./assets/radar-fraud-visual-home-en-us.png"
+            class="w-full h-full col-span-3"
+          />
+        </section>
+      </section>
+
+      <section class="z-30 relative w-full h-[70rem]">
+        <section
+          class="-skew-y-[4deg] h-[80rem] w-full bg-[#0a2540] z-40 top-0 left-0 right-0 absolute -mt-[7rem]"
+        >
+          <div
+            class="flex max-w-6xl mx-auto py-32 justify-center items-center mt-[10rem] skew-y-[4deg]"
+          >
+            <div class="flex flex-col gap-9 w-full">
+              <p class="text-stripe-sky-blue font-secondary text-xl">
+                Unified platform
+              </p>
+              <h1 class="text-4xl font-secondary text-white">
+                The world’s most powerful <br />
+                and easy-to-use APIs
+              </h1>
+              <p class="font-secondary font-light text-gray-400 text-xl">
+                We agonize over the right abstractions so your teams<br />
+                don’t need to stitch together disparate systems or<br />
+                spend months integrating payments functionality.
+              </p>
+
+              <button
+                class="bg-stripe-sky-blue w-fit text-black font-secondary font-sm px-4 py-2 rounded-full"
+              >
+                Start with payement
+              </button>
+              <div class="grid grid-cols-2">
+                <div>
+                  <svg
+                    width="96"
+                    height="96"
+                    viewBox="0 0 96 96"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <defs>
+                      <path
+                        id="terminalIconCode"
+                        d="M44 28a4 4 0 0 1 4 4v17a4 4 0 0 1-4 4H20a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h24zm-23.2 5.17l-.67.75a.5.5 0 0 0-.02.64l.06.06 3.29 2.92-3.3 2.92a.5.5 0 0 0-.03.7l.66.76c.18.2.5.22.7.04l4.97-4.42-4.96-4.41a.5.5 0 0 0-.7.04z"
+                      ></path>
+                      <path
+                        id="terminalIconCursor"
+                        d="M27.64 40h6.72c.22 0 .3.02.38.07.09.04.15.1.2.19.04.08.06.16.06.38v.72c0 .22-.02.3-.07.38a.45.45 0 0 1-.19.2c-.08.04-.16.06-.38.06h-6.72c-.22 0-.3-.02-.38-.07a.45.45 0 0 1-.2-.19c-.04-.08-.06-.16-.06-.38v-.72c0-.22.02-.3.07-.38.04-.09.1-.15.19-.2.08-.04.16-.06.38-.06z"
+                      ></path>
+                      <path
+                        id="terminalIconGear"
+                        d="M42.5 42l1.13 3.13.64.13 2.24-2.46.93.38-.16 3.33c.19.11.37.23.54.36l3.02-1.42.7.71-1.41 3.02c.13.17.25.35.36.54l3.33-.16.38.93-2.46 2.24c.05.21.1.42.13.64L55 54.5v1l-3.13 1.13c-.04.25-.1.5-.15.73l2.48 2.15-.38.93-3.28-.24c-.14.24-.3.47-.47.7l1.48 2.94-.71.7-2.94-1.47c-.23.17-.46.33-.7.47l.24 3.28-.93.38-2.15-2.48c-.27.06-.54.12-.82.16L42.5 68h-1l-1.04-3.12c-.28-.04-.55-.1-.82-.16l-2.15 2.48-.93-.38.24-3.28c-.24-.14-.47-.3-.7-.47l-2.94 1.48-.7-.71 1.47-2.94c-.17-.23-.33-.46-.47-.7l-3.28.24-.38-.93 2.48-2.15a9.95 9.95 0 0 1-.16-.82L29 55.5v-1l3.12-1.04c.04-.25.08-.49.14-.73l-2.46-2.24.38-.93 3.33.16c.11-.19.23-.37.36-.54l-1.42-3.02.71-.7 3.02 1.41c.17-.13.35-.25.54-.36l-.16-3.33.93-.38 2.24 2.46s.42-.1.64-.13L41.5 42h1zM42 53a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"
+                      ></path>
+                      <clipPath id="terminalIconClipPath">
+                        <use href="#terminalIconCode"></use>
+                      </clipPath>
+                    </defs>
+
+                    <use href="#terminalIconCode" fill="#00d4ff"></use>
+                    <use fill="var(--knockoutColor)"></use>
+                    <use href="#terminalIconGear" fill="#7a73ff"></use>
+                    <g clip-path="url(#terminalIconClipPath)">
+                      <use href="#terminalIconGear" fill="#ffff"></use>
+                    </g>
+                  </svg>
+                  <div class="text-white font-secondary">
+                    Tools for every stack
+                  </div>
+                  <p class="py-3 text-gray-400 font-secondary">
+                    We offer client and server<br />
+                    libraries in everything from <br />
+                    React and PHP to .NET and iOS.
+                  </p>
+                  <p
+                    class="font-secondary text-stripe-sky-blue flex items-center justify-start gap-2"
+                  >
+                    See libraries
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      class="w-5 h-5"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </p>
+                </div>
+                <div>
+                  <svg
+                    width="96"
+                    height="96"
+                    preserveAspectRatio="xMinYMin"
+                    viewBox="0 0 96 96"
+                    xmlns="http://www.w3.org/2000/svg"
+                    data-js-controller="BlocksIcon"
+                  >
+                    <defs>
+                      <path
+                        id="blocksIconBack"
+                        d="M30.68 31.37l9 4.15A4 4 0 0 1 42 39.15v10.89a4 4 0 0 1-2.32 3.63l-9 4.15a4 4 0 0 1-3.36 0l-9-4.15A4 4 0 0 1 16 50.04V39.15a4 4 0 0 1 .35-1.62L29 43.36v-1.54l-11.85-5.47a4 4 0 0 1 1.17-.83l9-4.15a4 4 0 0 1 3.36 0z"
+                      ></path>
+                      <path
+                        id="blocksIconFront"
+                        d="M55 45.15v10.89a4 4 0 0 1-2.32 3.63l-9 4.15a4 4 0 0 1-3.36 0l-9-4.15A4 4 0 0 1 29 56.04V45.15a4 4 0 0 1 .35-1.62L42 49.37l12.65-5.84a4 4 0 0 1 .35 1.62zm-11.32-7.78l9 4.15a4 4 0 0 1 1.17.83L42 47.82l-11.86-5.47a4 4 0 0 1 1.18-.83l9-4.15a4 4 0 0 1 3.36 0z"
+                      ></path>
+                      <clipPath id="blocksIconClipPath">
+                        <use
+                          href="#blocksIconFront"
+                          transform="translate(-13, -6)"
+                        ></use>
+                        <use
+                          href="#blocksIconFront"
+                          transform="translate(-65, -30)"
+                          data-js-bbox="secondHiddenBlock"
+                        ></use>
+                      </clipPath>
+                    </defs>
+                    <use
+                      href="#blocksIconFront"
+                      fill="#7a73ff"
+                      transform="translate(-13, -6)"
+                    ></use>
+                    <use href="#blocksIconFront" fill="#00d4ff"></use>
+                    <g clip-path="url(#blocksIconClipPath)">
+                      <use href="#blocksIconFront" fill="#fff"></use>
+                    </g>
+                  </svg>
+                  <div class="text-white font-secondary">
+                    Prebuilt integrations
+                  </div>
+                  <p class="py-3 text-gray-400 font-secondary">
+                    Use integrations for systems<br />
+                    like Shopify, WooCommerce,<br />
+                    NetSuite, and more.
+                  </p>
+                  <p
+                    class="font-secondary text-stripe-sky-blue flex items-center justify-start gap-2"
+                  >
+                    Explore partners
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      class="w-5 h-5"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="font-secondary font-light text-white w-full">
+              <code class="flex flex-col gap-2 bg-[#0c2e4e] h-96 p-5">
+                <code class="flex gap-2">
+                  <p class="text-gray-500">
+                    <span>1</span>
+                  </p>
+
+                  <p>
+                    <span class="text-violet-400">const</span>
+                    <span>stripe</span>
+                    <span>=</span>
+                    <span class="text-sky-300"
+                      >require<span class="text-white">(</span
+                      ><span class="text-orange-400">'stripe'</span
+                      ><span class="text-white">)</span></span
+                    >
+                  </p>
+                </code>
+                <code class="flex flex-col gap-2">
+                  <p class="text-gray-500">2</p>
+                  <div class="flex gap-2">
+                    <p class="text-gray-500">3</p>
+                    <p>
+                      <span class="text-violet-400">await</span>
+                      stripe.payementIntents.<span class="text-sky-300"
+                        >create</span
+                      >({<br />
+                      <span class="pl-9">
+                        amount:
+                        <span class="text-yellow-500">2000</span>,<br
+                      /></span>
+                      <span class="pl-9"
+                        >currentcy: <span class="text-orange-400">'usd'</span
+                        ><br
+                      /></span>
+                      });
+                    </p>
+                  </div>
+                </code>
+              </code>
+              <code class="flex justify-between w-full bg-[#072748] text-sm">
+                <p class="flex items-center gap-3">
+                  <span class="bg-[#8095ff] text-black py-1 px-2">NORMAL</span>
+                  <span>server.js</span>
+                </p>
+                <p class="flex items-center text-white/30">
+                  <span class="px-2">100%</span>
+                  <span class="flex gap-5 items-center"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-5 h-5"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                      />
+                    </svg>
+                    <span>6/6</span>
+                    <span>ln</span>
+                    <span>:</span>
+                    <span class="pr-4">4</span>
+                  </span>
+                </p>
+              </code>
+              <code
+                class="p-5 flex flex-col gap-3 text-sm bg-[#06182c] h-80 border border-sky-300/20 rounded-b-md"
+              >
+                <p>
+                  <span>$</span>
+                  <span>server.js && stripe listen</span>
+                </p>
+                <p>
+                  <span
+                    ><span>></span
+                    ><span> Ready! waiting for request...</span></span
+                  >
+                </p>
+                <p>
+                  <span class="text-[#55718d]">2022-10-4 15:19:00</span>
+                  <span>[<span class="text-sky-300">200</span>]</span>
+                  <span>payement_intent.created</span>
+                </p>
+                <p>
+                  <span class="text-[#55718d]">2022-10-4 15:19:00</span>
+                  <span>[<span class="text-sky-300">200</span>]</span>
+                  <span>charge.succeed</span>
+                </p>
+                <p>
+                  <span class="text-[#55718d]">2022-10-4 15:19:00</span>
+                  <span>[<span class="text-sky-300">200</span>]</span>
+                  <span>payement_intent.succeed</span>
+                </p>
+              </code>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section
+        class="mt-[0rem] pt-32 pb-32 gap-8 -skew-y-[4deg] bg-white z-50 relative"
+      >
+        <div class="absolute h-8 w-2/5 top-0 right-0">
+          <div class="bg-stripe-deco-blue/50 h-full w-full"></div>
+          <div
+            class="bg-stripe-semi-violet h-full w-32 -mt-5 ml-20 bg-opacity-90"
+          ></div>
+        </div>
+        <div class="absolute h-8 w-2/5 bottom-0 left-0">
+          <div class="bg-stripe-semi-violet/90 h-full w-full"></div>
+          <div
+            class="bg-stripe-deco-blue/50 h-full w-32 -mt-14 ml-auto mr-20 bg-opacity-90 z-20"
+          ></div>
+        </div>
+        <div class="max-w-6xl mx-auto flex flex-col skew-y-[4deg]">
+          <div class="flex flex-col gap-8">
+            <p class="text-[#0048e5] font-secondary">Why Stripe</p>
+            <h1 class="text-5xl font-secondary leading-[3.5rem] py-16">
+              A technology-first approach to payments<br />
+            </h1>
+          </div>
+          <div class="grid grid-cols-4">
+            <div>
+              <img src="./assets/vectos/material.svg" class="w-20" />
+              <p class="font-secondary">Close to the metal</p>
+              <p class="py-1 text-gray-400 font-secondary">
+                From direct integrations with<br />
+                card networks and banks to<br />
+                checkout flows in the browser,<br />
+                we operate on and optimize at<br />
+                every level of the financial stack.
+              </p>
+            </div>
+            <div>
+              <img src="./assets/vectos/doublePause.svg" class="w-20" />
+              <p class="font-secondary">Fastest-improving platform</p>
+              <p class="py-1 text-gray-400 font-secondary">
+                We release hundreds of features<br />
+                and improvements each year to<br />
+                help you stay ahead of industry<br />
+                shifts. (On average, we deploy<br />
+                our production API 16x per day.)
+              </p>
+            </div>
+
+            <div>
+              <img src="./assets/vectos/test.svg" class="w-20" />
+              <p class="font-secondary">Intelligent optimizations</p>
+              <p class="py-1 text-gray-400 font-secondary">
+                Our systems operate with<br />
+                99.99%+ uptime and are highly<br />
+                scalable and redundant. Stripe<br />
+                is certified to the highest<br />
+                compliance standards.
+              </p>
+            </div>
+
+            <div>
+              <img src="./assets/vectos/machine.svg" class="w-20" />
+              <p class="font-secondary">Battle-tested reliability</p>
+              <p class="py-1 text-gray-400 font-secondary">
+                Our machine learning models<br />
+                train on billions of data points<br />
+                and help increase revenue<br />
+                across conversion, fraud,<br />
+                revenue recovery, and more.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="relative w-full bg-[#0a2540] -translate-y-[16rem] -z-50 pt-48"
+      >
+        <div class="h-[55rem] w-full max-w-6xl mx-auto">
+          <img
+            src="./assets/download.png"
+            class="w-[1000px] h-full object-cover object-center ml-auto -mr-96 rounded-full"
+          />
+          <div class="absolute bottom-0 max-w-6xl mx-auto right-0 left-0">
+            <div class="flex flex-col gap-9 w-full">
+              <p class="text-stripe-sky-blue font-secondary text-xl px-5">
+                Global scale
+              </p>
+              <h1 class="text-5xl font-secondary text-white px-5">
+                The backbone for<br />
+                internet business
+              </h1>
+              <p class="font-secondary font-light text-gray-400 text-xl px-5">
+                For ambitious companies around the world, Stripe<br />
+                makes moving money as simple, borderless, and<br />
+                programmable as the rest of the internet. Our<br />
+                teams are based in dozens of offices around the<br />
+                world and we process hundreds of billions<br />
+                of dollars each year for
+                <span class="text-stripe-sky-blue">start up fortune 500s</span>
+              </p>
+              <div class="grid grid-cols-4 py-20">
+                <div class="space-y-3">
+                  <p
+                    class="text-white font-secondary text-2xl border-l-2 border-stripe-sky-blue px-5"
+                  >
+                    250M+
+                  </p>
+                  <p
+                    class="text-sm text-gray-400 font-secondary px-5 font-thin"
+                  >
+                    API requests per day, peaking at<br />
+                    13,000 requests a second.
+                  </p>
+                </div>
+                <div class="space-y-3">
+                  <p
+                    class="text-white font-secondary text-2xl border-l-2 border-stripe-sky-blue px-5"
+                  >
+                    90%s
+                  </p>
+                  <p
+                    class="text-sm text-gray-400 font-secondary px-5 font-thin"
+                  >
+                    of U.S. adults have bought from<br />
+                    businesses using Stripe.
+                  </p>
+                </div>
+                <div class="space-y-3">
+                  <p
+                    class="text-white font-secondary text-2xl border-l-2 border-stripe-sky-blue px-5"
+                  >
+                    135+
+                  </p>
+                  <p
+                    class="text-sm text-gray-400 font-secondary px-5 font-thin"
+                  >
+                    currencies and payment<br />
+                    methods supported.
+                  </p>
+                </div>
+                <div class="space-y-3">
+                  <p
+                    class="text-white font-secondary text-2xl border-l-2 border-stripe-sky-blue px-5"
+                  >
+                    35+
+                  </p>
+                  <p
+                    class="text-sm text-gray-400 font-secondary px-5 font-thin"
+                  >
+                    countries with local acquiring,<br />
+                    optimizing acceptance rates.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="-mt-24 py-20 max-w-6xl mx-auto flex flex-col gap-8">
+        <div class="grid grid-cols-4">
+          <div class="col-span-2 space-y-7">
+            <h2 class="font-secondary text-2xl">Ready to get started?</h2>
+            <p class="font-secondary text-gray-500">
+              Explore
+              <span class="text-stripe-blue">Stripe Payments</span>, or create
+              an account<br />
+              instantly and start accepting payments. You can<br />
+              also contact us to design a custom package for<br />
+              your business.
+            </p>
+            <div class="mt-7 flex gap-5">
+              <button
+                class="bg-stripe-blue text-white px-4 py-2 rounded-full text-sm font-bold flex gap-2 items-center"
+              >
+                Start now
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  class="w-5 h-5"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <button
+                class="font-bold text-sm px-4 py-2 flex gap-2 text-stripe-blue items-center"
+              >
+                Contact sales<svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  class="w-5 h-5"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <img src="./assets/vectos/pricing.svg" class="h-20" />
+            <p class="font-secondary border-l border-[#0048e5] px-4 text-sm">
+              Intelligent optimizations
+            </p>
+            <p class="py-1 text-gray-400 font-secondary px-4">
+              Integrated per-transaction<br />
+              pricing with no hidden fees.
+            </p>
+            <button
+              class="font-secondary text-sm px-4 py-2 flex gap-2 text-stripe-blue items-center"
+            >
+              Pricing Details
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="w-5 h-5"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <div>
+            <img src="./assets/vectos/code-mark.svg" class="h-20" />
+            <p class="font-secondary border-l border-[#0048e5] px-4 text-sm">
+              Battle-tested reliability
+            </p>
+            <p class="py-1 text-gray-400 font-secondary px-4">
+              Get up and running with Stripe<br />
+              in as little as 10 minutes.
+            </p>
+            <button
+              class="font-secondary text-sm px-4 py-2 flex gap-2 text-stripe-blue items-center"
+            >
+              API reference
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="w-5 h-5"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <footer
+        style="clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%)"
+        class="bg-slate-200"
+      >
+        <div class="grid grid-cols-4 justify-center py-20 max-w-6xl mx-auto">
+          <div
+            class="flex flex-col justify-between gap-2 mt-80 text-semi-gray font-secondary"
+          >
+            <div class="font-thin">
+              <h1 class="font-semibold">Stripe</h1>
+              <p>United States</p>
+              <p>English(United Kingdom)</p>
+            </div>
+            <p style="margin-top: 100%">© 2022 Stripe, Inc.</p>
+          </div>
+          <div class="mt-80 flex flex-col text-semi-gray gap-2 font-secondary">
+            <p class="font-semibold">Products</p>
+            <p>Atlas</p>
+            <p>Billing</p>
+            <p>Capital</p>
+            <p>Checkout</p>
+            <p>Climate</p>
+            <p>Connect</p>
+            <p>Corporate Card</p>
+            <p>Data Pipeline</p>
+            <p>Elements</p>
+            <p>Financial Connections</p>
+            <p>Identity</p>
+            <p>Invoicing</p>
+            <p>Issuing</p>
+            <p>Payments</p>
+            <p>Payment Links</p>
+            <p>Payouts</p>
+            <p>Pricing</p>
+            <p>Radar</p>
+            <p>Revenue Recognition</p>
+            <p>Sigma</p>
+            <p>Tax</p>
+            <p>Terminal</p>
+            <p>Treasury</p>
+          </div>
+          <div class="mt-80 flex flex-col text-semi-gray font-secondary gap-2">
+            <p class="font-semibold">Use cases</p>
+            <p>E-Commerce</p>
+            <p>SaaS</p>
+            <p>Marketplaces</p>
+            <p>Embedded Finance</p>
+            <p>Platforms</p>
+            <p>Creator Economy</p>
+            <p>Crypto</p>
+            <p>Global Businesses</p>
+            <div class="flex flex-col gap-2 py-7">
+              <p class="font-semibold">Integrations & Custom Solutions</p>
+              <p>App Marketplace</p>
+              <p>Partner Ecosystem</p>
+              <p>Professional Services</p>
+            </div>
+            <div class="flex flex-col gap-2 py-7">
+              <p class="font-semibold">Developers</p>
+              <p>Documentation</p>
+              <p>API reference</p>
+              <p>API status</p>
+              <p>API changelog</p>
+              <p>Build a Stripe App</p>
+            </div>
+          </div>
+          <div class="mt-80 mr-40 flex flex-col text-black gap-2">
+            <p class="font-semibold">Resources</p>
+            <p>Support Centre</p>
+            <p>Support Plans</p>
+            <p>Guides</p>
+            <p>Customer Stories</p>
+            <p>Blog</p>
+            <p>Annual Conference</p>
+            <p>Privacy & terms</p>
+            <p>Licences</p>
+            <p>COVID-19</p>
+            <p>Sitemap</p>
+            <p>Cookie settings</p>
+            <div class="flex flex-col gap-2 py-7">
+              <p class="font-semibold">Company</p>
+              <p>Jobs</p>
+              <p>Newsroom</p>
+              <p>Stripe Press</p>
+              <p>Become a Partner</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="Gradient.js"></script>
+  </body>
+</html>
