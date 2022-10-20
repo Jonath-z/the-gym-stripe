@@ -28,12 +28,12 @@
     <div
       class="absolute top-0 left-0 right-0 bottom-0 w-full h-[50rem] sm:h-[25rem] -z-30 header"
     >
-      <canvas id="gradient-canvas" style="width: 100%; height: 100%"></canvas>
+      <img src="./assets/hero-bg.png" class="h-full w-full object-cover" />
     </div>
     <div class="w-full">
       <header class="h-full w-full relative overflow-x-hidden">
         <nav class="flex flex-col justify-center max-w-6xl mx-auto py-4">
-          <div class="flex justify-between items-center">
+          <div class="flex justify-between items-center sm:px-mobile">
             <svg
               viewBox="0 0 60 25"
               xmlns="http://www.w3.org/2000/svg"
@@ -65,14 +65,30 @@
             <button
               class="text-white font-secondary bg-white/30 px-5 py-2 rounded-full flex justify-between items-center gap-2"
             >
-              Sign in
+              <span class="hidden sm:block"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  />
+                </svg>
+              </span>
+              <span class="sm:hidden">Sign in</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth="{1.5}"
                 stroke="currentColor"
-                class="w-6 h-4 font-extrabold"
+                class="w-6 h-4 font-extrabold sm:hidden"
               >
                 <path
                   strokeLinecap="round"
@@ -84,15 +100,15 @@
           </div>
 
           <div class="flex justify-center items-center">
-            <div class="mt-48 sm:mt-10 grid grid-cols-2 sm:grid-cols-1">
+            <div class="mt-48 sm:mt-10 grid grid-cols-2 sm:grid-cols-1 sm:px-8">
               <div>
                 <h1
-                  class="text-[5rem] mt-14 font-extrabold leading-tight font-secondary sm:text-2xl"
+                  class="text-[5rem] mt-14 sm:mt-10 font-extrabold leading-tight font-secondary sm:text-5xl"
                 >
                   Financial <br />
                   infrastructure for the internet
                 </h1>
-                <p class="font-secondary text-gray-500">
+                <p class="font-secondary text-gray-500 sm:mt-8">
                   Millions of companies of all sizes—from startups to Fortune
                   <br />
                   500s—use Stripe’s software and APIs to accept payments, <br />
@@ -508,7 +524,7 @@
       </header>
 
       <section
-        class="grid grid-cols-4 grid-rows-2 gap-y-12 max-w-6xl mx-auto my-20 sm:grid-cols-2 sm:grid-rows-4"
+        class="grid grid-cols-4 grid-rows-2 gap-y-12 max-w-6xl mx-auto my-20 sm:grid-cols-2 sm:grid-rows-4 sm:px-mobile"
       >
         <img src="./assets/vectos/instactar.svg" />
         <img src="./assets/vectos/saleforce.svg" />
@@ -520,9 +536,9 @@
         <img src="./assets/vectos/zoom.svg" />
       </section>
 
-      <section class="bg-[#8d95ec]/10">
+      <section class="bg-[#8d95ec]/10 sm:px-mobile sm:overflow-x-hidden">
         <div
-          class="grid grid-cols-2 max-w-6xl sm:max-w-full sm:w-full mx-auto py-32 justify-center items-center sm:grid-cols-1 sm:gap-5"
+          class="grid grid-cols-2 max-w-6xl sm:max-w-full sm:w-full mx-auto py-32 sm:pt-16 justify-center items-center sm:grid-cols-1 sm:gap-5"
         >
           <div class="flex flex-col gap-9">
             <p class="text-stripe-blue font-secondary text-xl">
@@ -570,36 +586,40 @@
             Start with payement
           </button>
         </div>
-        <section class="grid grid-cols-4 grid-rows-2 gap-9 max-w-6xl mx-auto">
+        <section
+          class="grid grid-cols-4 sm:grid-cols-2 grid-rows-2 sm:grid-rows-3 gap-9 sm:gap-2 max-w-6xl sm:max-w-[30rem] sm:w-[30rem] mx-auto"
+        >
           <img
             src="./assets/visa-removebg-preview.png"
-            class="w-full h-[50%]"
+            class="w-full h-[50%] sm:h-full"
           />
           <img
             src="./assets/slack-removebg-preview.png"
-            class="col-span-2 w-full h-full"
+            class="col-span-2 w-full h-full sm:col-span-1"
           />
           <img
             src="./assets/phone-removebg-preview.png"
-            class="-mt-28 row-span-1 h-[-webkit-fill-available] w-full"
+            class="-mt-28 row-span-1 h-[-webkit-fill-available] w-full sm:hidden"
           />
           <img
             src="./assets/shop-removebg-preview.png"
-            class="w-80 row-span-2 h-[90%] -mt-64"
+            class="w-80 row-span-2 h-[90%] -mt-64 sm:mt-0 sm:w-full"
           />
           <img
             src="./assets/radar-fraud-visual-home-en-us.png"
-            class="w-full h-full col-span-3"
+            class="w-full h-full col-span-3 sm:col-span-1 sm:row-span-2"
           />
         </section>
       </section>
 
-      <section class="z-30 relative w-full h-[70rem]">
+      <section
+        class="z-30 relative w-full h-[70rem] sm:h-[120rem] bg-[#0a2540] -skew-y-[4deg]"
+      >
         <section
-          class="-skew-y-[4deg] h-[80rem] w-full bg-[#0a2540] z-40 top-0 left-0 right-0 absolute -mt-[7rem]"
+          class="skew-y-[4deg] h-[80rem] w-full z-40 top-0 left-0 right-0 absolute -mt-[7rem] sm:px-mobile"
         >
           <div
-            class="flex max-w-6xl sm:max-w-full sm:w-full mx-auto py-32 justify-center items-center mt-[10rem] skew-y-[4deg] sm:flex-col"
+            class="flex max-w-6xl sm:max-w-full sm:w-full mx-auto py-32 sm:pt-0 justify-center items-center mt-[10rem] sm:flex-col"
           >
             <div class="flex flex-col gap-9 w-full">
               <p class="text-stripe-sky-blue font-secondary text-xl">
@@ -656,9 +676,9 @@
                   <div class="text-white font-secondary">
                     Tools for every stack
                   </div>
-                  <p class="py-3 text-gray-400 font-secondary">
-                    We offer client and server<br />
-                    libraries in everything from <br />
+                  <p class="py-3 text-gray-400 font-secondary sm:text-sm">
+                    We offer client and server<br class="sm:hidden" />
+                    libraries in everything from <br class="sm:hidden" />
                     React and PHP to .NET and iOS.
                   </p>
                   <p
@@ -722,9 +742,9 @@
                   <div class="text-white font-secondary">
                     Prebuilt integrations
                   </div>
-                  <p class="py-3 text-gray-400 font-secondary">
-                    Use integrations for systems<br />
-                    like Shopify, WooCommerce,<br />
+                  <p class="py-3 text-gray-400 font-secondary sm:text-sm">
+                    Use integrations for systems<br class="sm:hidden" />
+                    like Shopify, WooCommerce,<br class="sm:hidden" />
                     NetSuite, and more.
                   </p>
                   <p
@@ -747,8 +767,10 @@
                 </div>
               </div>
             </div>
-            <div class="font-secondary font-light text-white w-full">
-              <code class="flex flex-col gap-2 bg-[#0c2e4e] h-96 p-5">
+            <div class="font-secondary font-light text-white w-full sm:mt-10">
+              <code
+                class="flex flex-col gap-2 bg-[#0c2e4e] h-96 p-5 sm:text-xs"
+              >
                 <code class="flex gap-2">
                   <p class="text-gray-500">
                     <span>1</span>
@@ -792,7 +814,7 @@
                   <span class="bg-[#8095ff] text-black py-1 px-2">NORMAL</span>
                   <span>server.js</span>
                 </p>
-                <p class="flex items-center text-white/30">
+                <p class="flex items-center text-white/30 sm:hidden">
                   <span class="px-2">100%</span>
                   <span class="flex gap-5 items-center"
                     ><svg
@@ -817,7 +839,7 @@
                 </p>
               </code>
               <code
-                class="p-5 flex flex-col gap-3 text-sm bg-[#06182c] h-80 border border-sky-300/20 rounded-b-md"
+                class="p-5 flex flex-col gap-3 text-sm bg-[#06182c] h-80 border border-sky-300/20 rounded-b-md sm:text-xs"
               >
                 <p>
                   <span>$</span>
@@ -851,18 +873,18 @@
       </section>
 
       <section
-        class="mt-[0rem] pt-32 pb-32 gap-8 -skew-y-[4deg] bg-white z-50 relative"
+        class="mt-[0rem] pt-32 pb-32 gap-8 -skew-y-[4deg] bg-white z-50 relative overflow-x-hidden sm:px-mobile"
       >
         <div class="absolute h-8 w-2/5 top-0 right-0">
           <div class="bg-stripe-deco-blue/50 h-full w-full"></div>
           <div
-            class="bg-stripe-semi-violet h-full w-32 -mt-5 ml-20 bg-opacity-90"
+            class="bg-stripe-semi-violet h-full w-9/12 ml-auto -mt-5 bg-opacity-90"
           ></div>
         </div>
         <div class="absolute h-8 w-2/5 bottom-0 left-0">
           <div class="bg-stripe-semi-violet/90 h-full w-full"></div>
           <div
-            class="bg-stripe-deco-blue/50 h-full w-32 -mt-14 ml-auto mr-20 bg-opacity-90 z-20"
+            class="bg-stripe-deco-blue/50 h-full w-9/12 -mt-14 mr-auto bg-opacity-90 z-20"
           ></div>
         </div>
         <div
@@ -870,54 +892,57 @@
         >
           <div class="flex flex-col gap-8">
             <p class="text-[#0048e5] font-secondary">Why Stripe</p>
-            <h1 class="text-5xl font-secondary leading-[3.5rem] py-16">
-              A technology-first approach to payments<br />
+            <h1
+              class="text-5xl font-secondary leading-[3.5rem] py-16 sm:text-4xl sm:py-5"
+            >
+              A technology-first approach to payments<br class="sm:hidden" />
+              and finance
             </h1>
           </div>
-          <div class="grid grid-cols-4 sm:grid-cols-1">
+          <div class="grid grid-cols-4 sm:grid-cols-1 sm:gap-4 sm:mt-5">
             <div>
-              <img src="./assets/vectos/material.svg" class="w-20" />
+              <img src="./assets/vectos/material.svg" class="w-20 sm:w-16" />
               <p class="font-secondary">Close to the metal</p>
               <p class="py-1 text-gray-400 font-secondary">
-                From direct integrations with<br />
-                card networks and banks to<br />
-                checkout flows in the browser,<br />
-                we operate on and optimize at<br />
+                From direct integrations with<br class="sm:hidden" />
+                card networks and banks to<br class="sm:hidden" />
+                checkout flows in the browser,<br class="sm:hidden" />
+                we operate on and optimize at<br class="sm:hidden" />
                 every level of the financial stack.
               </p>
             </div>
             <div>
-              <img src="./assets/vectos/doublePause.svg" class="w-20" />
+              <img src="./assets/vectos/doublePause.svg" class="w-20 sm:w-16" />
               <p class="font-secondary">Fastest-improving platform</p>
               <p class="py-1 text-gray-400 font-secondary">
-                We release hundreds of features<br />
-                and improvements each year to<br />
-                help you stay ahead of industry<br />
-                shifts. (On average, we deploy<br />
+                We release hundreds of features<br class="sm:hidden" />
+                and improvements each year to<br class="sm:hidden" />
+                help you stay ahead of industry<br class="sm:hidden" />
+                shifts. (On average, we deploy<br class="sm:hidden" />
                 our production API 16x per day.)
               </p>
             </div>
 
             <div>
-              <img src="./assets/vectos/test.svg" class="w-20" />
+              <img src="./assets/vectos/test.svg" class="w-20 sm:w-16" />
               <p class="font-secondary">Intelligent optimizations</p>
               <p class="py-1 text-gray-400 font-secondary">
-                Our systems operate with<br />
-                99.99%+ uptime and are highly<br />
-                scalable and redundant. Stripe<br />
-                is certified to the highest<br />
+                Our systems operate with<br class="sm:hidden" />
+                99.99%+ uptime and are highly<br class="sm:hidden" />
+                scalable and redundant. Stripe<br class="sm:hidden" />
+                is certified to the highest<br class="sm:hidden" />
                 compliance standards.
               </p>
             </div>
 
             <div>
-              <img src="./assets/vectos/machine.svg" class="w-20" />
+              <img src="./assets/vectos/machine.svg" class="w-20 sm:w-16" />
               <p class="font-secondary">Battle-tested reliability</p>
               <p class="py-1 text-gray-400 font-secondary">
-                Our machine learning models<br />
-                train on billions of data points<br />
-                and help increase revenue<br />
-                across conversion, fraud,<br />
+                Our machine learning models<br class="sm:hidden" />
+                train on billions of data points<br class="sm:hidden" />
+                and help increase revenue<br class="sm:hidden" />
+                across conversion, fraud,<br class="sm:hidden" />
                 revenue recovery, and more.
               </p>
             </div>
@@ -926,32 +951,50 @@
       </section>
 
       <section
-        class="relative w-full bg-[#0a2540] -translate-y-[16rem] -z-50 pt-48"
+        class="relative w-full bg-[#0a2540] -translate-y-[16rem] -z-50 pt-48 sm:px-mobile"
       >
-        <div class="h-[55rem] w-full max-w-6xl sm:max-w-full sm:w-full mx-auto">
+        <div
+          class="h-[55rem] sm:h-[70rem] w-full max-w-6xl sm:max-w-full sm:w-full mx-auto sm:relative"
+        >
           <img
             src="./assets/download.png"
             class="w-[1000px] h-full object-cover object-center ml-auto -mr-96 rounded-full sm:hidden"
           />
           <div class="absolute bottom-0 max-w-6xl mx-auto right-0 left-0">
             <div class="flex flex-col gap-9 w-full">
-              <p class="text-stripe-sky-blue font-secondary text-xl px-5">
+              <p
+                class="text-stripe-sky-blue font-secondary text-xl px-5 sm:px-0"
+              >
                 Global scale
               </p>
-              <h1 class="text-5xl font-secondary text-white px-5">
+              <h1
+                class="text-5xl font-secondary text-white px-5 sm:text-3xl sm:px-0"
+              >
                 The backbone for<br />
                 internet business
               </h1>
-              <p class="font-secondary font-light text-gray-400 text-xl px-5">
-                For ambitious companies around the world, Stripe<br />
-                makes moving money as simple, borderless, and<br />
-                programmable as the rest of the internet. Our<br />
-                teams are based in dozens of offices around the<br />
-                world and we process hundreds of billions<br />
+              <p
+                class="font-secondary font-light text-gray-400 text-xl px-5 sm:text-[18px] sm:px-0"
+              >
+                For ambitious companies around the world, Stripe<br
+                  class="sm:hidden"
+                />
+                makes moving money as simple, borderless, and<br
+                  class="sm:hidden"
+                />
+                programmable as the rest of the internet. Our<br
+                  class="sm:hidden"
+                />
+                teams are based in dozens of offices around the<br
+                  class="sm:hidden"
+                />
+                world and we process hundreds of billions<br
+                  class="sm:hidden"
+                />
                 of dollars each year for
                 <span class="text-stripe-sky-blue">start up fortune 500s</span>
               </p>
-              <div class="grid grid-cols-4 py-20 sm:grid-cols-1">
+              <div class="grid grid-cols-4 py-20 sm:grid-cols-1 sm:gap-8">
                 <div class="space-y-3">
                   <p
                     class="text-white font-secondary text-2xl border-l-2 border-stripe-sky-blue px-5"
@@ -959,9 +1002,9 @@
                     250M+
                   </p>
                   <p
-                    class="text-sm text-gray-400 font-secondary px-5 font-thin"
+                    class="text-sm text-gray-400 font-secondary px-5 font-thin sm:mr-5 sm:px-0"
                   >
-                    API requests per day, peaking at<br />
+                    API requests per day, peaking at<br class="sm:hidden" />
                     13,000 requests a second.
                   </p>
                 </div>
@@ -972,9 +1015,9 @@
                     90%s
                   </p>
                   <p
-                    class="text-sm text-gray-400 font-secondary px-5 font-thin"
+                    class="text-sm text-gray-400 font-secondary px-5 font-thin sm:mr-5 sm:px-0"
                   >
-                    of U.S. adults have bought from<br />
+                    of U.S. adults have bought from<br class="sm:hidden" />
                     businesses using Stripe.
                   </p>
                 </div>
@@ -985,9 +1028,9 @@
                     135+
                   </p>
                   <p
-                    class="text-sm text-gray-400 font-secondary px-5 font-thin"
+                    class="text-sm text-gray-400 font-secondary px-5 font-thin sm:mr-5 sm:px-0"
                   >
-                    currencies and payment<br />
+                    currencies and payment<br class="sm:hidden" />
                     methods supported.
                   </p>
                 </div>
@@ -998,9 +1041,9 @@
                     35+
                   </p>
                   <p
-                    class="text-sm text-gray-400 font-secondary px-5 font-thin"
+                    class="text-sm text-gray-400 font-secondary px-5 font-thin sm:mr-5 sm:px-0"
                   >
-                    countries with local acquiring,<br />
+                    countries with local acquiring,<br class="sm:hidden" />
                     optimizing acceptance rates.
                   </p>
                 </div>
@@ -1010,25 +1053,77 @@
         </div>
       </section>
 
-      <section
-        class="-mt-24 py-20 max-w-6xl sm:w-full sm:max-w-full mx-auto flex flex-col gap-8"
-      >
-        <div class="grid grid-cols-4 sm:grid-cols-1">
-          <div class="col-span-2 space-y-7 sm:col-span-1">
-            <h2 class="font-secondary text-2xl">Ready to get started?</h2>
-            <p class="font-secondary text-gray-500">
-              Explore
-              <span class="text-stripe-blue">Stripe Payments</span>, or create
-              an account<br />
-              instantly and start accepting payments. You can<br />
-              also contact us to design a custom package for<br />
-              your business.
-            </p>
-            <div class="mt-7 flex gap-5">
+      <section class="sm:px-mobile sm:py-0 mt-12 h-[30rem] sm:h-full sm:mt-0">
+        <div
+          class="py-20 sm:pt-0 max-w-6xl sm:w-full sm:max-w-full mx-auto flex flex-col gap-8 -mt-24 sm:-mt-36"
+        >
+          <div class="grid grid-cols-4 sm:grid-cols-1">
+            <div class="col-span-2 space-y-7 sm:col-span-1">
+              <h2 class="font-secondary text-2xl sm:ml-5">
+                Ready to get started?
+              </h2>
+              <p class="font-secondary text-gray-500">
+                Explore
+                <span class="text-stripe-blue">Stripe Payments</span>, or create
+                an account<br />
+                instantly and start accepting payments. You can<br
+                  class="sm:hidden"
+                />
+                also contact us to design a custom package for<br
+                  class="sm:hidden"
+                />
+                your business.
+              </p>
+              <div class="mt-7 flex gap-5">
+                <button
+                  class="bg-stripe-blue text-white px-4 py-2 rounded-full text-sm font-bold flex gap-2 items-center"
+                >
+                  Start now
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    class="w-5 h-5"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </button>
+                <button
+                  class="font-bold text-sm px-4 py-2 flex gap-2 text-stripe-blue items-center"
+                >
+                  Contact sales<svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    class="w-5 h-5"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="sm:mt-10">
+              <img src="./assets/vectos/pricing.svg" class="h-20" />
+              <p class="font-secondary border-l border-[#0048e5] px-4 text-sm">
+                Intelligent optimizations
+              </p>
+              <p class="py-1 text-gray-500 font-secondary px-4">
+                Integrated per-transaction<br class="sm:hidden" />
+                pricing with no hidden fees.
+              </p>
               <button
-                class="bg-stripe-blue text-white px-4 py-2 rounded-full text-sm font-bold flex gap-2 items-center"
+                class="font-secondary text-sm px-4 py-2 flex gap-2 text-stripe-blue items-center"
               >
-                Start now
+                Pricing Details
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
@@ -1042,10 +1137,22 @@
                   />
                 </svg>
               </button>
+            </div>
+
+            <div class="sm:mt-5">
+              <img src="./assets/vectos/code-mark.svg" class="h-20" />
+              <p class="font-secondary border-l border-[#0048e5] px-4 text-sm">
+                Battle-tested reliability
+              </p>
+              <p class="py-1 text-gray-500 font-secondary px-4">
+                Get up and running with Stripe<br class="sm:hidden" />
+                in as little as 10 minutes.
+              </p>
               <button
-                class="font-bold text-sm px-4 py-2 flex gap-2 text-stripe-blue items-center"
+                class="font-secondary text-sm px-4 py-2 flex gap-2 text-stripe-blue items-center"
               >
-                Contact sales<svg
+                API reference
+                <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
@@ -1060,83 +1167,24 @@
               </button>
             </div>
           </div>
-
-          <div>
-            <img src="./assets/vectos/pricing.svg" class="h-20" />
-            <p class="font-secondary border-l border-[#0048e5] px-4 text-sm">
-              Intelligent optimizations
-            </p>
-            <p class="py-1 text-gray-400 font-secondary px-4">
-              Integrated per-transaction<br />
-              pricing with no hidden fees.
-            </p>
-            <button
-              class="font-secondary text-sm px-4 py-2 flex gap-2 text-stripe-blue items-center"
-            >
-              Pricing Details
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                class="w-5 h-5"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </button>
-          </div>
-
-          <div>
-            <img src="./assets/vectos/code-mark.svg" class="h-20" />
-            <p class="font-secondary border-l border-[#0048e5] px-4 text-sm">
-              Battle-tested reliability
-            </p>
-            <p class="py-1 text-gray-400 font-secondary px-4">
-              Get up and running with Stripe<br />
-              in as little as 10 minutes.
-            </p>
-            <button
-              class="font-secondary text-sm px-4 py-2 flex gap-2 text-stripe-blue items-center"
-            >
-              API reference
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                class="w-5 h-5"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </button>
-          </div>
         </div>
       </section>
 
-      <footer
-        style="clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%)"
-        class="bg-slate-200"
-      >
+      <footer class="bg-slate-200 relative w-full">
         <div
-          class="grid grid-cols-4 justify-center py-20 max-w-6xl mx-auto sm:grid-cols-2"
+          class="grid grid-cols-4 justify-center py-20 max-w-6xl mx-auto sm:grid-cols-2 sm:gap-8 sm:px-mobile"
         >
           <div
-            class="flex flex-col justify-between gap-2 mt-80 text-semi-gray font-secondary"
+            class="flex flex-col justify-between gap-2 text-semi-gray font-secondary sm:col-span-2 sm:justify-center sm:gap-4"
           >
             <div class="font-thin">
-              <h1 class="font-semibold">Stripe</h1>
+              <h1 class="font-semibold sm:text-2xl sm:py-2">Stripe</h1>
               <p>United States</p>
               <p>English(United Kingdom)</p>
             </div>
-            <p style="margin-top: 100%">© 2022 Stripe, Inc.</p>
+            <p>© 2022 Stripe, Inc.</p>
           </div>
-          <div class="mt-80 flex flex-col text-semi-gray gap-2 font-secondary">
+          <div class="flex flex-col text-semi-gray gap-2 font-sans">
             <p class="font-semibold">Products</p>
             <p>Atlas</p>
             <p>Billing</p>
@@ -1162,7 +1210,7 @@
             <p>Terminal</p>
             <p>Treasury</p>
           </div>
-          <div class="mt-80 flex flex-col text-semi-gray font-secondary gap-2">
+          <div class="flex flex-col text-semi-gray font-sans gap-2">
             <p class="font-semibold">Use cases</p>
             <p>E-Commerce</p>
             <p>SaaS</p>
@@ -1187,7 +1235,9 @@
               <p>Build a Stripe App</p>
             </div>
           </div>
-          <div class="mt-80 mr-40 flex flex-col text-black gap-2">
+          <div
+            class="mr-40 sm:mr-0 sm:w-full flex flex-col text-semi-gray gap-2 font-sans"
+          >
             <p class="font-semibold">Resources</p>
             <p>Support Centre</p>
             <p>Support Plans</p>
@@ -1200,7 +1250,8 @@
             <p>COVID-19</p>
             <p>Sitemap</p>
             <p>Cookie settings</p>
-            <div class="flex flex-col gap-2 py-7">
+
+            <div class="flex flex-col gap-2 py-7 sm:hidden">
               <p class="font-semibold">Company</p>
               <p>Jobs</p>
               <p>Newsroom</p>
@@ -1208,9 +1259,15 @@
               <p>Become a Partner</p>
             </div>
           </div>
+          <div class="hidden sm:flex flex-col gap-2 font-sans text-semi-gray">
+            <p class="font-semibold">Company</p>
+            <p class="">Jobs</p>
+            <p>Newsroom</p>
+            <p>Stripe Press</p>
+            <p>Become a Partner</p>
+          </div>
         </div>
       </footer>
     </div>
-    <script src="Gradient.js"></script>
   </body>
 </html>

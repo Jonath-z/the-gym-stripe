@@ -17,6 +17,9 @@ module.exports = {
       screens: {
         sm: { max: "700px" },
       },
+      padding: {
+        mobile: "2rem",
+      },
     },
   },
   plugins: [],
