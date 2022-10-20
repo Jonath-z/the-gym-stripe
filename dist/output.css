@@ -1873,6 +1873,26 @@ body {
     margin-top: 2.5rem;
   }
 
+  .md\:mt-16 {
+    margin-top: 4rem;
+  }
+
+  .md\:ml-\[250rem\] {
+    margin-left: 250rem;
+  }
+
+  .md\:ml-\[20rem\] {
+    margin-left: 20rem;
+  }
+
+  .md\:ml-\[18rem\] {
+    margin-left: 18rem;
+  }
+
+  .md\:mt-28 {
+    margin-top: 7rem;
+  }
+
   .md\:block {
     display: block;
   }
@@ -1911,6 +1931,14 @@ body {
 
   .md\:w-\[35rem\] {
     width: 35rem;
+  }
+
+  .md\:w-\[20rem\] {
+    width: 20rem;
+  }
+
+  .md\:w-\[28rem\] {
+    width: 28rem;
   }
 
   .md\:max-w-2xl {
@@ -1974,6 +2002,10 @@ body {
     padding-top: 0px;
   }
 
+  .md\:pb-32 {
+    padding-bottom: 8rem;
+  }
+
   .md\:text-5xl {
     font-size: 3rem;
     line-height: 1;
@@ -1987,6 +2019,19 @@ body {
   .md\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
+  }
+
+  .md\:text-7xl {
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+
+  .md\:text-\[3\.8rem\] {
+    font-size: 3.8rem;
+  }
+
+  .md\:text-\[4rem\] {
+    font-size: 4rem;
   }
 }
 
