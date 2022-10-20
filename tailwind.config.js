@@ -2,6 +2,10 @@
 module.exports = {
   content: ["./index.html"],
   theme: {
+    screens: {
+      sm: { max: "767px" },
+      md: { min: "768px", max: "1300px" },
+    },
     extend: {
       fontFamily: {
         primary: "primary",
@@ -13,10 +17,6 @@ module.exports = {
         "stripe-sky-blue": "#00d4ff",
         "stripe-deco-blue": "#02bcf5",
         "stripe-semi-violet": "#7a73ff",
-      },
-      screens: {
-        sm: { max: "800px" },
-        md: { min: "8001px", max: "1400px" },
       },
       padding: {
         mobile: "2rem",
