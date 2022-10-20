@@ -15,8 +15,8 @@ module.exports = {
         "stripe-semi-violet": "#7a73ff",
       },
       screens: {
-        sm: { max: "700px" },
-        md: { max: "1400px" },
+        sm: { max: "800px" },
+        md: { min: "8001px", max: "1400px" },
       },
       padding: {
         mobile: "2rem",

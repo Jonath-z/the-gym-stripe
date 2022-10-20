@@ -655,8 +655,8 @@ video {
   margin-bottom: 5rem;
 }
 
-.mt-48 {
-  margin-top: 12rem;
+.mt-20 {
+  margin-top: 5rem;
 }
 
 .mt-14 {
@@ -715,6 +715,10 @@ video {
   margin-top: -16rem;
 }
 
+.-mt-32 {
+  margin-top: -8rem;
+}
+
 .-mt-\[7rem\] {
   margin-top: -7rem;
 }
@@ -759,10 +763,6 @@ video {
   margin-right: 10rem;
 }
 
-.-mt-32 {
-  margin-top: -8rem;
-}
-
 .flex {
   display: flex;
 }
@@ -783,8 +783,8 @@ video {
   height: 100%;
 }
 
-.h-\[50rem\] {
-  height: 50rem;
+.h-\[40rem\] {
+  height: 40rem;
 }
 
 .h-6 {
@@ -1570,11 +1570,7 @@ body {
   line-height: 1.25rem;
 }
 
-@media (max-width: 700px) {
-  .sm\:absolute {
-    position: absolute;
-  }
-
+@media (max-width: 800px) {
   .sm\:relative {
     position: relative;
   }
@@ -1623,12 +1619,8 @@ body {
     margin-right: 0px;
   }
 
-  .sm\:-mr-0 {
-    margin-right: -0px;
-  }
-
-  .sm\:-mr-80 {
-    margin-right: -20rem;
+  .sm\:mt-32 {
+    margin-top: 8rem;
   }
 
   .sm\:block {
@@ -1643,8 +1635,8 @@ body {
     display: none;
   }
 
-  .sm\:h-\[25rem\] {
-    height: 25rem;
+  .sm\:h-\[23rem\] {
+    height: 23rem;
   }
 
   .sm\:h-full {
@@ -1728,11 +1720,6 @@ body {
     padding-right: 2rem;
   }
 
-  .sm\:px-8 {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-
   .sm\:py-5 {
     padding-top: 1.25rem;
     padding-bottom: 1.25rem;
@@ -1759,6 +1746,14 @@ body {
 
   .sm\:pt-0 {
     padding-top: 0px;
+  }
+
+  .sm\:pt-32 {
+    padding-top: 8rem;
+  }
+
+  .sm\:pt-44 {
+    padding-top: 11rem;
   }
 
   .sm\:text-5xl {
@@ -1796,69 +1791,29 @@ body {
   }
 }
 
-@media (max-width: 1400px) {
-  .md\:-right-96 {
-    right: -24rem;
+@media (min-width: 8001px) and (max-width: 1400px) {
+  .md\:mt-16 {
+    margin-top: 4rem;
   }
 
-  .md\:top-0 {
-    top: 0px;
+  .md\:mt-28 {
+    margin-top: 7rem;
   }
 
-  .md\:col-span-2 {
-    grid-column: span 2 / span 2;
+  .md\:mt-10 {
+    margin-top: 2.5rem;
   }
 
-  .md\:-mr-\[50rem\] {
-    margin-right: -50rem;
-  }
-
-  .md\:-mr-\[100rem\] {
-    margin-right: -100rem;
-  }
-
-  .md\:ml-\[30rem\] {
-    margin-left: 30rem;
-  }
-
-  .md\:ml-\[28rem\] {
-    margin-left: 28rem;
-  }
-
-  .md\:ml-\[25rem\] {
-    margin-left: 25rem;
-  }
-
-  .md\:-mt-32 {
-    margin-top: -8rem;
+  .md\:ml-\[18rem\] {
+    margin-left: 18rem;
   }
 
   .md\:mr-10 {
     margin-right: 2.5rem;
   }
 
-  .md\:-mt-36 {
-    margin-top: -9rem;
-  }
-
   .md\:mt-0 {
     margin-top: 0px;
-  }
-
-  .md\:-mt-96 {
-    margin-top: -24rem;
-  }
-
-  .md\:-mt-44 {
-    margin-top: -11rem;
-  }
-
-  .md\:-mt-28 {
-    margin-top: -7rem;
-  }
-
-  .md\:mt-36 {
-    margin-top: 9rem;
   }
 
   .md\:-mt-56 {
@@ -1867,30 +1822,6 @@ body {
 
   .md\:mt-24 {
     margin-top: 6rem;
-  }
-
-  .md\:mt-10 {
-    margin-top: 2.5rem;
-  }
-
-  .md\:mt-16 {
-    margin-top: 4rem;
-  }
-
-  .md\:ml-\[250rem\] {
-    margin-left: 250rem;
-  }
-
-  .md\:ml-\[20rem\] {
-    margin-left: 20rem;
-  }
-
-  .md\:ml-\[18rem\] {
-    margin-left: 18rem;
-  }
-
-  .md\:mt-28 {
-    margin-top: 7rem;
   }
 
   .md\:block {
@@ -1909,48 +1840,16 @@ body {
     height: 100%;
   }
 
-  .md\:w-96 {
-    width: 24rem;
-  }
-
   .md\:w-\[30rem\] {
     width: 30rem;
-  }
-
-  .md\:w-\[50rem\] {
-    width: 50rem;
-  }
-
-  .md\:w-\[40rem\] {
-    width: 40rem;
-  }
-
-  .md\:w-\[38rem\] {
-    width: 38rem;
-  }
-
-  .md\:w-\[35rem\] {
-    width: 35rem;
-  }
-
-  .md\:w-\[20rem\] {
-    width: 20rem;
   }
 
   .md\:w-\[28rem\] {
     width: 28rem;
   }
 
-  .md\:max-w-2xl {
-    max-width: 42rem;
-  }
-
-  .md\:max-w-6xl {
-    max-width: 72rem;
-  }
-
-  .md\:max-w-\[35rem\] {
-    max-width: 35rem;
+  .md\:w-\[35rem\] {
+    width: 35rem;
   }
 
   .md\:grid-cols-2 {
@@ -1961,73 +1860,21 @@ body {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 
-  .md\:grid-cols-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
   .md\:grid-rows-2 {
     grid-template-rows: repeat(2, minmax(0, 1fr));
-  }
-
-  .md\:flex-col {
-    flex-direction: column;
-  }
-
-  .md\:gap-9 {
-    gap: 2.25rem;
-  }
-
-  .md\:gap-6 {
-    gap: 1.5rem;
-  }
-
-  .md\:gap-5 {
-    gap: 1.25rem;
   }
 
   .md\:gap-10 {
     gap: 2.5rem;
   }
 
-  .md\:overflow-x-hidden {
-    overflow-x: hidden;
+  .md\:gap-5 {
+    gap: 1.25rem;
   }
 
   .md\:px-mobile {
     padding-left: 2rem;
     padding-right: 2rem;
-  }
-
-  .md\:pt-0 {
-    padding-top: 0px;
-  }
-
-  .md\:pb-32 {
-    padding-bottom: 8rem;
-  }
-
-  .md\:text-5xl {
-    font-size: 3rem;
-    line-height: 1;
-  }
-
-  .md\:text-6xl {
-    font-size: 3.75rem;
-    line-height: 1;
-  }
-
-  .md\:text-3xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
-  }
-
-  .md\:text-7xl {
-    font-size: 4.5rem;
-    line-height: 1;
-  }
-
-  .md\:text-\[3\.8rem\] {
-    font-size: 3.8rem;
   }
 
   .md\:text-\[4rem\] {
