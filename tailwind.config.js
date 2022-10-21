@@ -6,10 +6,15 @@ module.exports = {
       sm: { max: "767px" },
       md: { min: "768px", max: "1200px" },
     },
+
     extend: {
       fontFamily: {
         primary: "primary",
         secondary: "secondary",
+      },
+      clipPath: {
+        footer: "polygon(0 15%, 100% 0%, 100% 100%, 0% 100%)",
+        header: "polygon(0 0, 100% 0, 100% 50%, 100% 52%, 0 80%, 0 53%)",
       },
       colors: {
         "semi-gray": "#0a2540",
@@ -23,5 +28,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-clip-path")],
 };
